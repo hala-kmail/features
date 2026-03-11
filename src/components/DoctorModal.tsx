@@ -37,7 +37,7 @@ const DoctorModal = ({ doctor, isOpen, onClose }: DoctorModalProps) => {
 الوقت: ${formData.time}`;
     
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/966500000000?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/970594056090?text=${encodedMessage}`, '_blank');
   };
 
   return (
