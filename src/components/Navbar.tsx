@@ -35,7 +35,7 @@ const Navbar = () => {
           <img 
             src="/logo.png" 
             alt="فيتشرز لطب الأسنان" 
-            className="h-18 md:h-14 w-auto object-contain"
+            className=" md:h-16 h-12 w-auto object-contain"
             onError={(e) => {
               e.currentTarget.style.display = 'none';
               const parent = e.currentTarget.parentElement;

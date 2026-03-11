@@ -34,13 +34,13 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full max-w-xl lg:max-w-lg flex flex-col justify-start py-16"
+          className="w-full max-w-xl lg:max-w-lg flex flex-col justify-start py-16 text-center lg:text-right"
         >
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="w-fit inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-teal-600 text-sm font-medium mb-8"
+            className="w-fit inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-teal-600 text-sm font-medium mb-8 mx-auto lg:mx-0"
           >
             <Sparkles size={16} className="text-pink-500" />
             عيادة فيتشرز لطب الأسنان
@@ -56,7 +56,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-lg text-slate-600 mb-10 leading-relaxed max-w-md"
+            className="text-lg text-slate-600 mb-10 leading-relaxed max-w-md mx-auto lg:mx-0"
           >
             نجمع بين الخبرة الطبية والتقنيات الحديثة لنمنحك الابتسامة التي تستحقها. رعاية شاملة في بيئة مريحة وآمنة.
           </motion.p>
@@ -65,13 +65,13 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-wrap gap-4"
+            className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start items-center"
           >
-            <a href="#contact" className="btn-primary flex items-center gap-2 text-lg px-8 py-4">
+            <a href="#contact" className="w-fit btn-primary flex items-center gap-2 text-lg px-8 py-4">
               <Calendar size={20} />
               احجز موعدك الآن
             </a>
-            <a href="#services" className="flex items-center gap-2 text-teal-600 font-semibold hover:text-teal-700 transition-colors group">
+            <a href="#services" className="w-fit flex items-center gap-2 text-teal-600 font-semibold hover:text-teal-700 transition-colors group">
               اكتشف خدماتنا
               <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
             </a>
