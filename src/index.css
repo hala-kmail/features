@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --font-cairo: "Cairo", sans-serif;
+  
+  /* Modern refined palette */
+  --color-primary: #0d9488;
+  --color-primary-dark: #0f766e;
+  --color-accent: #ec4899;
+  --color-accent-soft: #f472b6;
+  --color-dark: #0f172a;
+  --color-slate: #64748b;
+  --color-bg: #f8fafc;
+  --color-card: #ffffff;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-15px) scale(1.05); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes morph-blob {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.06; }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Cairo", sans-serif;
+    background: #f8fafc;
+    color: #334155;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-slate-200/60 shadow-xl shadow-slate-200/20 rounded-2xl;
+  }
+  
+  .card-modern {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-lg shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-200/60 hover:border-teal-500/20 transition-all duration-500;
+  }
+  
+  .btn-primary {
+    @apply bg-teal-500 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-teal-600 hover:shadow-lg hover:shadow-teal-500/25 active:scale-[0.98];
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/25 active:scale-[0.98];
+  }
+  
+  .btn-outline {
+    @apply border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:border-primary hover:text-primary hover:bg-primary/5;
+  }
+  
+  .section-dark {
+    @apply bg-slate-900 text-white;
+  }
+  
+  .gradient-mesh {
+    background: 
+      radial-gradient(at 40% 20%, rgba(13, 148, 136, 0.15) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(236, 72, 153, 0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, rgba(13, 148, 136, 0.08) 0px, transparent 50%);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+  
+  .animate-morph {
+    animation: morph-blob 8s ease-in-out infinite;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(90deg, #0d9488, #ec4899, #0d9488);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s ease infinite;
+  }
+}
