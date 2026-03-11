@@ -3,7 +3,7 @@ import { Calendar, ArrowLeft, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-white">
+    <section id="home" className="relative min-h-screen flex items-center pt-24 overflow-hidden gradient-mesh">
       {/* Light gradient background */}
       <div className="absolute inset-0 bg-gradient-to-bl from-teal-50/80 via-white to-pink-50/50" />
       <div className="absolute top-0 right-0 w-[50%] h-[60%] bg-teal-100/40 rounded-full blur-[120px]" />
@@ -19,7 +19,7 @@ const Hero = () => {
       />
 
       {/* Image as background on the left - not full width, rounded left edges */}
-      <div className="absolute left-4 lg:left-20 top-24 bottom-0 w-[calc(100%-2rem)] lg:w-[60%] overflow-hidden rounded-l-3xl">
+      <div className="absolute left-4 lg:left-20 top-24 bottom-0 w-[calc(100%-2rem)] lg:w-[60%] overflow-hidden rounded-l-3xl rounded-r-3xl md:rounded-r-none">
         <img
           src="/tooth2.jpg"
           alt="عيادة الأسنان"
