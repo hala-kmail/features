@@ -35,8 +35,8 @@ const Contact = () => {
 
             <div className="space-y-4">
               {[
-                { icon: Phone, label: 'اتصل بنا', value: '+٩٦٦ ٥٠ ٠٠٠ ٠٠٠٠', color: 'teal' },
-                { icon: MessageCircle, label: 'واتساب', value: '+٩٦٦ ٥٠ ٠٠٠ ٠٠٠٠', color: 'pink' },
+                { icon: Phone, label: 'اتصل بنا', value: '+966506030256', color: 'teal' },
+                { icon: MessageCircle, label: 'واتساب', value: '+966506030256', color: 'pink' },
                 { icon: MapPin, label: 'موقعنا', value: 'الرياض، حي الملقا، طريق الملك فهد', color: 'teal' },
               ].map((item) => (
                 <motion.div
