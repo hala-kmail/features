@@ -55,7 +55,7 @@ const Doctors = () => {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8">
-                  <p className="text-white/80 text-sm mb-4">{doctor.experience}</p>
+                  {/* <p className="text-white/80 text-sm mb-4">{doctor.experience}</p> */}
                   <button
                     onClick={() => handleOpenModal(doctor)}
                     className="w-12 h-12 rounded-xl bg-white text-teal-600 flex items-center justify-center shadow-xl hover:scale-105 transition-transform"

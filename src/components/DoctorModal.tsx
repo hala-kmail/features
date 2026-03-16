@@ -94,10 +94,10 @@ const DoctorModal = ({ doctor, isOpen, onClose }: DoctorModalProps) => {
                       />
                       <h3 className="text-xl font-bold text-teal-600 mt-4 mb-1">{doctor.name}</h3>
                       <p className="text-pink-500 font-semibold text-sm mb-2">{doctor.specialty}</p>
-                      <div className="flex items-center gap-2 text-xs text-slate-600 mb-4">
+                      {/* <div className="flex items-center gap-2 text-xs text-slate-600 mb-4">
                         <Calendar size={14} />
                         <span>{doctor.experience}</span>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="space-y-4 text-right flex-1">
                       <div>
@@ -228,10 +228,10 @@ const DoctorModal = ({ doctor, isOpen, onClose }: DoctorModalProps) => {
                   />
                   <h3 className="text-2xl font-black text-teal-600 mb-2">{doctor.name}</h3>
                   <p className="text-pink-500 font-bold mb-4">{doctor.specialty}</p>
-                  <div className="flex items-center gap-2 text-sm text-slate-600 mb-6">
+                  {/* <div className="flex items-center gap-2 text-sm text-slate-600 mb-6">
                     <Calendar size={16} />
                     <span>{doctor.experience}</span>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="space-y-6">
                   <div>

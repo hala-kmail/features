@@ -64,7 +64,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="card-modern p-10"
+            className="card-modern p-8"
           >
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
