@@ -1,11 +1,8 @@
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import Doctors from './components/Doctors';
-import WorkingHours from './components/WorkingHours';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import DoctorProfilePage from './pages/DoctorProfilePage';
 import { motion, useScroll, useSpring } from 'motion/react';
 
 function App() {
@@ -18,28 +15,22 @@ function App() {
 
   return (
     <div className="relative">
-      {/* Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-teal-500 z-[60] origin-right"
         style={{ scaleX }}
       />
 
       <Navbar />
-      
-      <main>
-        <Hero />
-        <Services />
-        <Doctors />
-        <WorkingHours />
-        <Testimonials />
-        <Contact />
-      </main>
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/doctor/:id" element={<DoctorProfilePage />} />
+      </Routes>
 
       <Footer />
 
-      {/* WhatsApp Floating Button */}
       <motion.a
-        href="https://wa.me/966506030256 "
+        href="https://wa.me/966506030256"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0, opacity: 0 }}

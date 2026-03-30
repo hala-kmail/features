@@ -1,7 +1,32 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Phone, MapPin, MessageCircle, Send } from 'lucide-react';
 
+const WHATSAPP_NUMBER = '966506030256';
+
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    service: 'زراعة الأسنان',
+    message: '',
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = `مرحباً، رسالة من نموذج التواصل في الموقع:
+
+الاسم: ${formData.name}
+رقم الهاتف: ${formData.phone}
+الخدمة المطلوبة: ${formData.service}
+
+الرسالة:
+${formData.message}`;
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="contact" className="py-28 bg-white relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[50%] h-[70%] bg-teal-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
@@ -66,33 +91,43 @@ const Contact = () => {
             viewport={{ once: true }}
             className="card-modern p-8"
           >
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2 flex flex-col items-start">
                   <label className="text-sm font-semibold text-slate-700 ">الاسم الكامل</label>
                   <input
+                    required
                     type="text"
                     placeholder="أدخل اسمك"
                     className="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all duration-300"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
                 </div>
                 <div className="space-y-2 flex flex-col items-start">
                   <label className="text-sm font-semibold text-slate-700">رقم الهاتف</label>
                   <input
+                    required
                     type="tel"
                     placeholder="٠٥xxxxxxxx"
                     className="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all duration-300"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   />
                 </div>
               </div>
 
               <div className="space-y-2 flex flex-col items-start">
                 <label className="text-sm font-semibold text-slate-700">الخدمة المطلوبة</label>
-                <select className="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all duration-300 appearance-none">
-                  <option>زراعة الأسنان</option>
-                  <option>تقويم الأسنان</option>
-                  <option>تبييض الأسنان</option>
-                  <option>أخرى</option>
+                <select
+                  className="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all duration-300 appearance-none"
+                  value={formData.service}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                >
+                  <option value="زراعة الأسنان">زراعة الأسنان</option>
+                  <option value="تقويم الأسنان">تقويم الأسنان</option>
+                  <option value="تبييض الأسنان">تبييض الأسنان</option>
+                  <option value="أخرى">أخرى</option>
                 </select>
               </div>
 
@@ -102,13 +137,18 @@ const Contact = () => {
                   rows={4}
                   placeholder="كيف يمكننا مساعدتك؟"
                   className="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all duration-300 resize-none"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 ></textarea>
               </div>
 
-              <button className="w-full btn-primary flex items-center justify-center gap-3 py-4 text-lg font-semibold">
+              <button type="submit" className="w-full btn-primary flex items-center justify-center gap-3 py-4 text-lg font-semibold">
                 <Send size={20} />
-                إرسال الرسالة
+                إرسال عبر واتساب
               </button>
+              <p className="text-center text-xs text-slate-500">
+                سيتم فتح واتساب مع نص رسالتك جاهزاً للإرسال
+              </p>
             </form>
           </motion.div>
         </div>

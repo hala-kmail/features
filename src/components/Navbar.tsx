@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -15,11 +16,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'الرئيسية', href: '#home' },
-    { name: 'الخدمات', href: '#services' },
-    { name: 'أطباؤنا', href: '#doctors' },
-    { name: 'آراء المرضى', href: '#testimonials' },
-    { name: 'تواصل معنا', href: '#contact' },
+    { name: 'الرئيسية', to: '/#home' },
+    { name: 'الخدمات', to: '/#services' },
+    { name: 'أطباؤنا', to: '/#doctors' },
+    { name: 'آراء المرضى', to: '/#testimonials' },
+    { name: 'تواصل معنا', to: '/#contact' },
   ];
 
   return (
@@ -31,7 +32,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img 
             src="/logo.png" 
             alt="فيتشرز لطب الأسنان" 
@@ -47,32 +48,35 @@ const Navbar = () => {
               }
             }}
           />
-        </div>
+        </Link>
 
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link, i) => (
-            <motion.a
+            <motion.div
               key={link.name}
-              href={link.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
-              className="relative font-medium py-2 transition-colors group text-slate-600 hover:text-teal-600"
             >
-              {link.name}
-              <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-teal-500 group-hover:w-full transition-all duration-300" />
-            </motion.a>
+              <Link
+                to={link.to}
+                className="relative font-medium py-2 transition-colors group text-slate-600 hover:text-teal-600 inline-block"
+              >
+                {link.name}
+                <span className="absolute bottom-0 right-0 w-0 h-0.5 bg-teal-500 group-hover:w-full transition-all duration-300" />
+              </Link>
+            </motion.div>
           ))}
         </div>
 
         <div className="hidden md:block">
-          <a 
-            href="#contact" 
+          <Link 
+            to="/#contact" 
             className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold transition-all bg-teal-500 text-white hover:bg-teal-600 shadow-lg shadow-teal-500/25"
           >
             <Phone size={18} />
             احجز موعد
-          </a>
+          </Link>
         </div>
 
         <button
@@ -93,25 +97,28 @@ const Navbar = () => {
           >
             <div className="flex flex-col p-6 gap-2">
               {navLinks.map((link, i) => (
-                <motion.a
+                <motion.div
                   key={link.name}
-                  href={link.href}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  className="text-slate-700 hover:text-teal-600 font-medium py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {link.name}
-                </motion.a>
+                  <Link
+                    to={link.to}
+                    className="block text-slate-700 hover:text-teal-600 font-medium py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
-              <a
-                href="#contact"
+              <Link
+                to="/#contact"
                 className="btn-primary text-center mt-4"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 احجز موعد
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

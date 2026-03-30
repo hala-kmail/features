@@ -1,18 +1,9 @@
-import { useState } from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { doctors } from '../data/doctors';
-import DoctorModal from './DoctorModal';
 import { Plus } from 'lucide-react';
 
 const Doctors = () => {
-  const [selectedDoctor, setSelectedDoctor] = useState<any>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal = (doctor: any) => {
-    setSelectedDoctor(doctor);
-    setIsModalOpen(true);
-  };
-
   return (
     <section id="doctors" className="py-28 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4">
@@ -54,31 +45,34 @@ const Doctors = () => {
                   className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8">
-                  {/* <p className="text-white/80 text-sm mb-4">{doctor.experience}</p> */}
-                  <button
-                    onClick={() => handleOpenModal(doctor)}
-                    className="w-12 h-12 rounded-xl bg-white text-teal-600 flex items-center justify-center shadow-xl hover:scale-105 transition-transform"
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8 gap-3">
+                  <Link
+                    to={`/doctor/${doctor.id}`}
+                    className="inline-flex items-center gap-3 rounded-xl bg-white text-teal-600 px-4 py-3 shadow-xl hover:scale-[1.02] transition-transform w-fit max-w-full"
+                    aria-label={`تعرف على ${doctor.name}`}
                   >
-                    <Plus size={24} />
-                  </button>
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-teal-50">
+                      <Plus size={22} />
+                    </span>
+                    <span className="font-bold text-sm text-slate-800">تعرف على الطبيب</span>
+                  </Link>
                 </div>
               </div>
-              
+
               <div className="mt-6">
                 <h3 className="text-xl font-bold text-slate-900">{doctor.name}</h3>
                 <p className="text-teal-600 font-semibold mt-1">{doctor.specialty}</p>
+                <Link
+                  to={`/doctor/${doctor.id}`}
+                  className="inline-block mt-3 text-sm font-bold text-teal-600 hover:text-teal-700 underline-offset-4 hover:underline"
+                >
+                  تعرف على الطبيب
+                </Link>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
-
-      <DoctorModal
-        doctor={selectedDoctor}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </section>
   );
 };
