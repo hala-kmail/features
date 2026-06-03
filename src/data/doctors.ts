@@ -34,7 +34,7 @@ export const doctors: Doctor[] = [
   },
   {
     id: 2,
-    name: "د. فواد سعيد",
+    name: "د. فؤاد الغامدي",
     specialty: "أخصائي طب الأسنان المتقدم",
     experience: "علاج أسنان الأطفال والكبار",
     image: "/drFouad.webp",
@@ -50,7 +50,7 @@ export const doctors: Doctor[] = [
   },
   {
     id: 3,
-    name: "د. زيد",
+    name: "د.  زيد المطوع",
     specialty: "أخصائي علاج جذور وأعصاب الأسنان",
     experience: "علاج وإعادة علاج الجذور وجراحة جذور الأسنان",
     image: "/drZaid.webp",

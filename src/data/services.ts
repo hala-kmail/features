@@ -1,11 +1,12 @@
-import { Stethoscope, ShieldCheck, Sparkles, Activity, HeartPulse } from 'lucide-react';
+import { ShieldCheck, Sparkles, Activity } from 'lucide-react';
+import ToothIcon from '../components/icons/ToothIcon';
 
 export const services = [
   {
     id: 1,
     title: "زراعة الأسنان",
     description: "استعد ابتسامتك الطبيعية مع أحدث تقنيات زراعة الأسنان العالمية.",
-    icon: Stethoscope,
+    icon: ToothIcon,
   },
   {
     id: 2,
@@ -29,7 +30,7 @@ export const services = [
     id: 5,
     title: "طب الأسنان العام",
     description: "فحوصات دورية وعناية شاملة لصحة فمك وأسنانك.",
-    icon: HeartPulse,
+    icon: ToothIcon,
   },
   {
     id: 6,

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Award, Calendar, CheckCircle2, Clock, Phone, Send, Sparkles, Stethoscope, User } from 'lucide-react';
+import { ArrowRight, Award, Calendar, CheckCircle2, Clock, Phone, Sparkles, User } from 'lucide-react';
+import WhatsAppIcon from '../components/icons/WhatsAppIcon';
 import { getDoctorById } from '../data/doctors';
 import OptimizedImage from '../components/OptimizedImage';
+import ToothIcon from '../components/icons/ToothIcon';
 
 const DoctorProfilePage = () => {
   const { id } = useParams();
@@ -104,7 +106,7 @@ const DoctorProfilePage = () => {
                       {doctor.experience}
                     </span>
                     <span className="inline-flex items-center gap-2 rounded-full border border-pink-100 bg-white/80 px-3 py-2 text-xs font-bold text-slate-700">
-                      <Stethoscope size={15} className="text-pink-500" />
+                      <ToothIcon size={15} className="text-pink-500" />
                       {doctorServices.length} خدمات
                     </span>
                   </div>
@@ -115,7 +117,7 @@ const DoctorProfilePage = () => {
             <section className="py-5">
               <div className="mb-4 flex items-center gap-3 text-right">
                 <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 ring-1 ring-teal-100">
-                  <Stethoscope size={21} />
+                  <ToothIcon size={21} />
                 </span>
                 <div>
                   <h2 className="text-xl font-black text-slate-900">خدمات الطبيب</h2>
@@ -211,7 +213,7 @@ const DoctorProfilePage = () => {
 
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 text-sm font-bold text-slate-700">
-                    <Stethoscope size={16} />
+                    <ToothIcon size={16} />
                     الخدمة المطلوبة
                   </label>
                   <select
@@ -256,8 +258,11 @@ const DoctorProfilePage = () => {
                   </div>
                 </div>
 
-                <button type="submit" className="btn-primary mt-3 flex w-full items-center justify-center gap-3 py-4 text-lg">
-                  <Send size={20} />
+                <button
+                  type="submit"
+                  className="mt-3 flex w-full items-center justify-center gap-3 rounded-xl bg-[#25D366] py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-[#20bd5a] hover:shadow-lg hover:shadow-[#25D366]/25 active:scale-[0.98]"
+                >
+                  <WhatsAppIcon size={22} />
                   احجز عبر واتساب
                 </button>
                 <p className="text-center text-xs leading-6 text-slate-500">

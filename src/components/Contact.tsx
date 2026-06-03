@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Phone, MapPin, MessageCircle, Send } from 'lucide-react';
+import { Phone, MapPin } from 'lucide-react';
+import WhatsAppIcon from './icons/WhatsAppIcon';
 
 const WHATSAPP_NUMBER = '966539233000';
 
@@ -61,7 +62,7 @@ ${formData.message}`;
             <div className="space-y-4">
               {[
                 { icon: Phone, label: 'اتصل بنا', value: '00966539233000', color: 'teal' },
-                { icon: MessageCircle, label: 'واتساب', value: '00966539233000', color: 'pink' },
+                { icon: WhatsAppIcon, label: 'واتساب', value: '00966539233000', color: 'whatsapp' },
                 {
                   icon: MapPin,
                   label: 'العنوان',
@@ -75,7 +76,11 @@ ${formData.message}`;
                   className={`flex items-center gap-6 p-3 rounded-2xl border border-slate-100 hover:border-teal-200 hover:bg-teal-50/50 transition-all duration-300`}
                 >
                   <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${
-                    item.color === 'teal' ? 'bg-teal-50 text-teal-600' : 'bg-pink-50 text-pink-600'
+                    item.color === 'whatsapp'
+                      ? 'bg-[#25D366]/10 text-[#25D366]'
+                      : item.color === 'teal'
+                        ? 'bg-teal-50 text-teal-600'
+                        : 'bg-pink-50 text-pink-600'
                   }`}>
                     <item.icon size={24} />
                   </div>
@@ -165,8 +170,11 @@ ${formData.message}`;
                 ></textarea>
               </div>
 
-              <button type="submit" className="w-full btn-primary flex items-center justify-center gap-3 py-4 text-lg font-semibold">
-                <Send size={20} />
+              <button
+                type="submit"
+                className="flex w-full items-center justify-center gap-3 rounded-xl bg-[#25D366] py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-[#20bd5a] hover:shadow-lg hover:shadow-[#25D366]/25 active:scale-[0.98]"
+              >
+                <WhatsAppIcon size={22} />
                 إرسال عبر واتساب
               </button>
               <p className="text-center text-xs text-slate-500">
