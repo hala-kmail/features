@@ -59,7 +59,7 @@ const Footer = () => {
                     whileTap={{ scale: 0.95 }}
                     className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 transition-all duration-300 hover:border-teal-500/30 hover:bg-teal-500/20 hover:text-white overflow-hidden"
                   >
-                    <Icon size={social.label === 'Snapchat' ? 28 : 20} />
+                    <Icon size={20} />
                   </motion.a>
                 );
               })}
