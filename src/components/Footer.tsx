@@ -1,61 +1,98 @@
 import { motion } from 'motion/react';
-import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Instagram } from 'lucide-react';
+import SnapchatIcon from './icons/SnapchatIcon';
+import TikTokIcon from './icons/TikTokIcon';
+import XIcon from './icons/XIcon';
+import { useLanguage } from '../i18n/LanguageContext';
+
+const socialLinks = [
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/featuresclinics?igsh=d2UwNzI2NzB4YTN2',
+    icon: Instagram,
+  },
+  {
+    label: 'Snapchat',
+    href: 'https://snapchat.com/t/GtdRDFJu',
+    icon: SnapchatIcon,
+  },
+  {
+    label: 'X',
+    href: 'https://x.com/featuresclinics?s=11',
+    icon: XIcon,
+  },
+  {
+    label: 'TikTok',
+    href: 'https://www.tiktok.com/@featuresdentalclinics?_r=1&_t=ZS-96u3jUsW4F2',
+    icon: TikTokIcon,
+  },
+] as const;
 
 const Footer = () => {
-  const socialIcons = [Instagram, Twitter, Facebook, Youtube];
-  
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-slate-900 text-white pt-20 pb-10 relative overflow-hidden">
       <div className="absolute inset-0 gradient-mesh" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16 mb-20">
           <div className="space-y-6">
-            <img 
-              src="/logo.png" 
-              alt="فيتشرز لطب الأسنان" 
+            <img
+              src="/logo.png"
+              alt={t.common.brand}
               className="h-24 w-auto object-contain brightness-0 invert opacity-90"
-              referrerPolicy="no-referrer"
             />
-            <p className="text-slate-400 leading-relaxed max-w-xs">
-              ملتزمون بتقديم أعلى معايير الجودة في طب الأسنان، مع التركيز على راحة المريض ونتائج تدوم طويلاً.
-            </p>
+            <p className="text-slate-400 leading-relaxed max-w-xs">{t.footer.description}</p>
             <div className="flex gap-3">
-              {socialIcons.map((Icon, i) => (
-                <motion.a
-                  key={i}
-                  href="#"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-teal-500/20 hover:border-teal-500/30 transition-all duration-300"
-                >
-                  <Icon size={20} />
-                </motion.a>
-              ))}
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 transition-all duration-300 hover:border-teal-500/30 hover:bg-teal-500/20 hover:text-white overflow-hidden"
+                  >
+                    <Icon size={social.label === 'Snapchat' ? 28 : 20} />
+                  </motion.a>
+                );
+              })}
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold text-white mb-6">روابط سريعة</h4>
+            <h4 className="text-lg font-bold text-white mb-6">{t.footer.quickLinks}</h4>
             <ul className="space-y-4">
-              {['الرئيسية', 'الخدمات', 'أطباؤنا', 'احجز موعد'].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-slate-400 hover:text-teal-400 transition-colors">
-                    {link}
-                  </a>
+              {t.footer.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-slate-400 hover:text-teal-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold text-white mb-6">خدماتنا</h4>
+            <h4 className="text-lg font-bold text-white mb-6">{t.footer.ourServices}</h4>
             <ul className="space-y-4">
-              {['زراعة الأسنان', 'تقويم الأسنان', 'تبييض الأسنان', 'علاج الجذور', 'تجميل الأسنان'].map((service) => (
-                <li key={service}>
-                  <a href="#" className="text-slate-400 hover:text-teal-400 transition-colors">
-                    {service}
-                  </a>
+              {t.footer.serviceLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.href}
+                    className="text-slate-400 hover:text-teal-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -63,9 +100,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} فيتشرز لطب الأسنان. جميع الحقوق محفوظة.
-          </p>
+          <p className="text-slate-500 text-sm">{t.footer.copyright(new Date().getFullYear())}</p>
         </div>
       </div>
     </footer>

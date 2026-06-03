@@ -6,8 +6,11 @@ import HomePage from './pages/HomePage';
 import DoctorProfilePage from './pages/DoctorProfilePage';
 import { motion } from 'motion/react';
 import WhatsAppIcon from './components/icons/WhatsAppIcon';
+import { useLanguage } from './i18n/LanguageContext';
 
 function App() {
+  const { t } = useLanguage();
+
   return (
     <div className="relative">
 
@@ -26,7 +29,7 @@ function App() {
         href="https://wa.me/966539233000"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="تواصل عبر واتساب"
+        aria-label={t.common.whatsappAria}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.5, type: "spring", stiffness: 200 }}

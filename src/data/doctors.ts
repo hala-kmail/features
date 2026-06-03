@@ -1,73 +1,12 @@
-export type Doctor = {
-  id: number;
-  name: string;
-  specialty: string;
-  experience: string;
-  image: string;
-  bio: string;
-  certificates: string[];
-  practiceScope?: string[];
-};
+import type { Locale, DoctorTranslation } from '../i18n/types';
+import { translations } from '../i18n/translations';
 
-export const doctors: Doctor[] = [
-  {
-    id: 1,
-    name: "د. أحمد سعيدان",
-    specialty: "استشاري الاستعاضة السنية، زراعة الأسنان واستعاضة الوجه والفكين",
-    experience: "١٥ سنة خبرة",
-    image: "/drAhmad.webp",
-    bio: "خبير في الاستعاضة السنية وزراعة الأسنان واستعاضة الوجه والفكين.",
-    certificates: [
-      "بكالوريوس طب الأسنان: جامعة الملك سعود",
-      "شهادة الاختصاص والماجستير: جامعة انديانا في الولايات المتحدة الأمريكية",
-      "زمالة زراعة الأسنان: جامعة ميريلاند",
-      "زمالة استعاضة الوجه والفكين: مستشفى مايو كلينيك",
-      "البورد الأمريكي والكندي في الاستعاضة السنية"
-    ],
-    practiceScope: [
-      "تيجان الأسنان",
-      "جسور الأسنان",
-      "زراعة الأسنان",
-      "تجميل الأسنان",
-      "الأطقم المتحركة للأسنان"
-    ]
-  },
-  {
-    id: 2,
-    name: "د. فؤاد الغامدي",
-    specialty: "أخصائي طب الأسنان المتقدم",
-    experience: "علاج أسنان الأطفال والكبار",
-    image: "/drFouad.webp",
-    bio: "أخصائي طب الأسنان المتقدم، متخصص في علاج أسنان الأطفال والكبار.",
-    certificates: [
-      "بكالوريوس طب وجراحة الفم والأسنان: جامعة الملك عبدالعزيز",
-      "طب الأسنان المتقدم: معهد الأمير عبدالرحمن للدراسات العليا بالتعاون مع جامعة برتش كولومبيا بكندا"
-    ],
-    practiceScope: [
-      "علاج طب أسنان الأطفال",
-      "علاج طب أسنان الكبار"
-    ]
-  },
-  {
-    id: 3,
-    name: "د.  زيد المطوع",
-    specialty: "أخصائي علاج جذور وأعصاب الأسنان",
-    experience: "علاج وإعادة علاج الجذور وجراحة جذور الأسنان",
-    image: "/drZaid.webp",
-    bio: "أخصائي علاج جذور وأعصاب الأسنان، متخصص في العلاج الأولي وإعادة العلاج وجراحة جذور الأسنان.",
-    certificates: [
-      "بكالوريوس طب الأسنان: كليّات الرؤية",
-      "دبلوم علاج الجذور وأعصاب الأسنان المتقدم: جامعة جنوى",
-      "ماجستير علاج جذور وأعصاب الأسنان: جامعة رياض العلم"
-    ],
-    practiceScope: [
-      "علاج جذور وأعصاب الأسنان",
-      "إعادة علاج جذور وأعصاب الأسنان",
-      "جراحة جذور الأسنان"
-    ]
-  }
-];
+export type Doctor = DoctorTranslation;
 
-export function getDoctorById(id: number): Doctor | undefined {
-  return doctors.find((d) => d.id === id);
+export function getDoctors(locale: Locale): Doctor[] {
+  return translations[locale].doctors.list;
+}
+
+export function getDoctorById(id: number, locale: Locale): Doctor | undefined {
+  return getDoctors(locale).find((d) => d.id === id);
 }

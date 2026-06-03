@@ -1,41 +1,16 @@
 import { ShieldCheck, Sparkles, Activity } from 'lucide-react';
 import ToothIcon from '../components/icons/ToothIcon';
+import type { ComponentType } from 'react';
 
-export const services = [
-  {
-    id: 1,
-    title: "زراعة الأسنان",
-    description: "استعد ابتسامتك الطبيعية مع أحدث تقنيات زراعة الأسنان العالمية.",
-    icon: ToothIcon,
-  },
-  {
-    id: 2,
-    title: "تقويم الأسنان",
-    description: "نقدم حلول تقويم الأسنان الشفافة والمعدنية لابتسامة متناسقة.",
-    icon: ShieldCheck,
-  },
-  {
-    id: 3,
-    title: "تبييض الأسنان",
-    description: "احصل على ابتسامة ناصعة البياض في جلسة واحدة فقط.",
-    icon: Sparkles,
-  },
-  {
-    id: 4,
-    title: "علاج جذور الأسنان",
-    description: "علاجات دقيقة وبدون ألم للحفاظ على أسنانك الطبيعية.",
-    icon: Activity,
-  },
-  {
-    id: 5,
-    title: "طب الأسنان العام",
-    description: "فحوصات دورية وعناية شاملة لصحة فمك وأسنانك.",
-    icon: ToothIcon,
-  },
-  {
-    id: 6,
-    title: "تجميل الأسنان",
-    description: "ابتسامة هوليوود وتصميم الابتسامة الرقمي بأعلى جودة.",
-    icon: Sparkles,
-  }
-];
+type IconComponent = ComponentType<{ size?: number; className?: string }>;
+
+export const serviceIcons: Record<number, IconComponent> = {
+  1: ToothIcon,
+  2: ShieldCheck,
+  3: Sparkles,
+  4: Activity,
+  5: ToothIcon,
+  6: Sparkles,
+};
+
+export { ToothIcon };
