@@ -3,12 +3,12 @@ import { Clock, Calendar, AlertCircle } from 'lucide-react';
 
 const WorkingHours = () => {
   const hours = [
-    { day: 'السبت', time: '٩:٠٠ ص - ٨:٠٠ م', status: 'open' },
-    { day: 'الأحد', time: '٩:٠٠ ص - ٨:٠٠ م', status: 'open' },
-    { day: 'الاثنين', time: '٩:٠٠ ص - ٨:٠٠ م', status: 'open' },
-    { day: 'الثلاثاء', time: '٩:٠٠ ص - ٨:٠٠ م', status: 'open' },
-    { day: 'الأربعاء', time: '٩:٠٠ ص - ٨:٠٠ م', status: 'open' },
-    { day: 'الخميس', time: '٩:٠٠ ص - ٨:٠٠ م', status: 'open' },
+    { day: 'السبت', time: '٢:٠٠ م - ١٠:٠٠ م', status: 'open' },
+    { day: 'الأحد', time: '٢:٠٠ م - ١٠:٠٠ م', status: 'open' },
+    { day: 'الاثنين', time: '٢:٠٠ م - ١٠:٠٠ م', status: 'open' },
+    { day: 'الثلاثاء', time: '٢:٠٠ م - ١٠:٠٠ م', status: 'open' },
+    { day: 'الأربعاء', time: '٢:٠٠ م - ١٠:٠٠ م', status: 'open' },
+    { day: 'الخميس', time: '١٠:٠٠ ص - ٦:٠٠ م', status: 'open' },
     { day: 'الجمعة', time: 'مغلق', status: 'closed' },
   ];
 

@@ -4,22 +4,11 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import DoctorProfilePage from './pages/DoctorProfilePage';
-import { motion, useScroll, useSpring } from 'motion/react';
+import { motion } from 'motion/react';
 
 function App() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
   return (
     <div className="relative">
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-teal-500 z-[60] origin-right"
-        style={{ scaleX }}
-      />
 
       <Navbar />
 
@@ -33,7 +22,7 @@ function App() {
       <Footer />
 
       <motion.a
-        href="https://wa.me/966506030256"
+        href="https://wa.me/966539233000"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0, opacity: 0 }}

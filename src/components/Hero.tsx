@@ -6,8 +6,8 @@ const Hero = () => {
     <section id="home" className="relative min-h-screen flex items-center pt-24 overflow-hidden gradient-mesh">
       {/* Light gradient background */}
       <div className="absolute inset-0 bg-gradient-to-bl from-teal-50/80 via-white to-pink-50/50" />
-      <div className="absolute top-0 right-0 w-[50%] h-[60%] bg-teal-100/40 rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 left-0 w-[40%] h-[50%] bg-pink-100/40 rounded-full blur-[100px]" />
+      <div className="absolute top-0 right-0 w-[50%] h-[60%] bg-teal-100/40 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[40%] h-[50%] bg-pink-100/40 rounded-full blur-3xl" />
       
       {/* Subtle pattern */}
       <div 
@@ -21,10 +21,12 @@ const Hero = () => {
       {/* Image as background on the left - not full width, rounded left edges */}
       <div className="absolute left-4 lg:left-20 top-24 bottom-0 w-[calc(100%-2rem)] lg:w-[60%] overflow-hidden rounded-l-3xl rounded-r-3xl md:rounded-r-none">
         <img
-          src="/tooth2.jpg"
+          src="/tooth2.webp"
           alt="عيادة الأسنان"
           className="absolute left-0 top-0 h-full w-full object-cover object-left"
-          referrerPolicy="no-referrer"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-l from-white via-white/80 to-transparent" />
       </div>

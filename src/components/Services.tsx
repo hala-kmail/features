@@ -48,10 +48,10 @@ const Services = () => {
                 <p className="text-slate-600 leading-relaxed flex-grow">
                   {service.description}
                 </p>
-                <div className="mt-6 flex items-center gap-2 text-teal-600 font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* <div className="mt-6 flex items-center gap-2 text-teal-600 font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span>اقرأ المزيد</span>
                   <span className="w-8 h-0.5 bg-teal-500 rounded-full" />
-                </div>
+                </div> */}
               </div>
             </motion.div>
           ))}

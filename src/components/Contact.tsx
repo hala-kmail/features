@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Phone, MapPin, MessageCircle, Send } from 'lucide-react';
 
-const WHATSAPP_NUMBER = '966506030256';
+const WHATSAPP_NUMBER = '966539233000';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -60,9 +60,14 @@ ${formData.message}`;
 
             <div className="space-y-4">
               {[
-                { icon: Phone, label: 'اتصل بنا', value: '+966506030256', color: 'teal' },
-                { icon: MessageCircle, label: 'واتساب', value: '+966506030256', color: 'pink' },
-                { icon: MapPin, label: 'موقعنا', value: 'الرياض، حي الملقا، طريق الملك فهد', color: 'teal' },
+                { icon: Phone, label: 'اتصل بنا', value: '00966539233000', color: 'teal' },
+                { icon: MessageCircle, label: 'واتساب', value: '00966539233000', color: 'pink' },
+                {
+                  icon: MapPin,
+                  label: 'العنوان',
+                  value: ['الرياض', 'حي النخيل الشرقي', 'شارع التخصصي', 'الدور الثاني'],
+                  color: 'teal',
+                },
               ].map((item) => (
                 <motion.div
                   key={item.label}
@@ -76,9 +81,27 @@ ${formData.message}`;
                   </div>
                   <div>
                     <p className="text-sm text-slate-500">{item.label}</p>
-                    <p className="text-lg font-bold text-slate-900" dir={item.label === 'موقعنا' ? 'rtl' : 'ltr'}>
-                      {item.value}
-                    </p>
+                    {Array.isArray(item.value) ? (
+                      <p
+                        className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm md:text-base font-bold text-slate-900"
+                        dir="rtl"
+                      >
+                        {item.value.map((part, i) => (
+                          <span key={part} className="inline-flex items-center gap-3">
+                            {i > 0 && (
+                              <span className="text-teal-300 font-normal" aria-hidden>
+                                ·
+                              </span>
+                            )}
+                            {part}
+                          </span>
+                        ))}
+                      </p>
+                    ) : (
+                      <p className="text-lg font-bold text-slate-900" dir="ltr">
+                        {item.value}
+                      </p>
+                    )}
                   </div>
                 </motion.div>
               ))}

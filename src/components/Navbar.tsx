@@ -19,7 +19,6 @@ const Navbar = () => {
     { name: 'الرئيسية', to: '/#home' },
     { name: 'الخدمات', to: '/#services' },
     { name: 'أطباؤنا', to: '/#doctors' },
-    { name: 'آراء المرضى', to: '/#testimonials' },
     { name: 'تواصل معنا', to: '/#contact' },
   ];
 
