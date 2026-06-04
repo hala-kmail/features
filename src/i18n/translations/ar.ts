@@ -75,7 +75,7 @@ export const ar: Translations = {
     list: [
       {
         id: 1,
-        image: '/drAhmad.webp',
+        image: '/drAhmad.jpeg',
         name: 'د. أحمد سعيدان',
         specialty: 'استشاري الاستعاضة السنية، زراعة الأسنان واستعاضة الوجه والفكين',
         experience: '١٥ سنة خبرة',

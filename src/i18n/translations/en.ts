@@ -75,7 +75,7 @@ export const en: Translations = {
     list: [
       {
         id: 1,
-        image: '/drAhmad.webp',
+        image: '/drAhmad.jpeg',
         name: 'Dr. Ahmad Saidan',
         specialty: 'Prosthodontics consultant, dental implants & maxillofacial prosthetics',
         experience: '15 years of experience',
